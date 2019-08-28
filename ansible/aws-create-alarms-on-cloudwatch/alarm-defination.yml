@@ -1,0 +1,25 @@
+- name: Print Details
+  debug:
+    msg: "{{ instanceid }}"
+
+- name: create alarm
+  ec2_metric_alarm:
+    state: present
+    region: "{{region}}"
+    name: "{{app_name}}.{{ item.alarmName }}.{{ instanceid }}"
+    metric: "{{ item.metricName }}"
+    namespace: "AWS/EC2"
+    statistic: Average
+    comparison: "<="
+    threshold: "{{ item.thresholdValue }}"
+    period: 300
+    evaluation_periods: 3
+    unit: "{{ item.unitValue }}"
+    description: "This will alarm for {{ instanceid }} when {{ item.metricName }} reaches threshold {{ item.thresholdValue }}  "
+    dimensions: {'InstanceId': "{{ instanceid }}"}
+    alarm_actions: "{{ alarm_recipients }}"
+  with_items:
+  - { alarmName: cpu, metricName: CPUUtilization, thresholdValue: 70, unitValue: Percent }
+  - { alarmName: disk-space, metricName: DiskSpaceUtilization, thresholdValue: 70, unitValue: Percent  }
+  - { alarmName: memory, metricName: MemoryUtilization, thresholdValue: 70, unitValue: Percent  }
+  - { alarmName: swap, metricName: SwapUtilization, thresholdValue: 70, unitValue: Percent  }

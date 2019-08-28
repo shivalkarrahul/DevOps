@@ -1,0 +1,14 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  vars:
+    app_name: test
+    region: ap-south-1 
+    alarm_recipients: arn:aws:sns:ap-south-1:089816662102:rahuls-test
+  tasks:
+  - include_tasks: alarm-defination.yml
+    with_items:
+      - i-07946c42670ec0e43
+    loop_control:
+      loop_var: instanceid
