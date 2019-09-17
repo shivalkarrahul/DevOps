@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: drone-agent
+  namespace: drone
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: drone-agent
+    spec:
+      containers:
+      - image: drone/agent:0.8
+        imagePullPolicy: Always
+        name: drone-agent
+        volumeMounts:
+          # Enables Docker in Docker
+          - name: docker-socket
+            mountPath: /var/run/docker.sock
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        env:
+        - name: DRONE_SERVER
+          value: drone-service:9000
+        # issue: https://github.com/drone/drone/issues/2048
+        - name: DRONE_SECRET
+          value: secret
+
+      volumes:
+        - name: docker-socket
+          hostPath:
+            path: /var/run/docker.sock

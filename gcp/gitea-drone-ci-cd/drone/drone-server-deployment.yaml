@@ -1,0 +1,61 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: drone-server
+  namespace: drone
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: drone-server
+    spec:
+      containers:
+      - image: drone/drone:0.8
+        imagePullPolicy: Always
+        name: drone-server
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+
+        - containerPort: 9000
+          protocol: TCP
+        volumeMounts:
+          - name: drone-server-sqlite-db
+            mountPath: /var/lib/drone
+          - name: docker-socket
+            mountPath: /var/run/docker.sock
+        resources:
+          requests:
+            cpu: 40m
+            memory: 32Mi
+        env:
+        - name: DRONE_GITEA
+          value: "true"
+
+        - name: DRONE_OPEN
+          value: "true"
+
+        - name: DRONE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: drone-config
+              key: server.host
+
+        - name: DRONE_GITEA_URL
+          valueFrom:
+            configMapKeyRef:
+              name: drone-config
+              key: server.remote.gitea.url
+
+        - name: DRONE_SECRET
+          value: "secret"
+
+      volumes:
+        - name: drone-server-sqlite-db
+          gcePersistentDisk:
+            pdName:  drone-server-sqlite-db
+            fsType: ext4
+        - name: docker-socket
+          hostPath:
+            path: /var/run/docker.sock

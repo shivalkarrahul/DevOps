@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: drone-config
+  namespace: drone
+data:
+
+  # Add IP of Drone Server
+  server.host: "http://SERVICE-EXTERNAL-IP"
+
+  # Add IP of Gitea Server
+  server.remote.gitea.url: "http://GITEA-EXTERNAL-IP"
