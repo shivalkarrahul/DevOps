@@ -1,0 +1,14 @@
+pipeline:
+  build:
+    image: python:${PYTHON_VERSION}
+    commands:
+      - pip install -r dev-requirements.txt
+      # - python setup.py install
+      - pytest -s -r xX
+      - flake8 --version
+      - flake8 --ignore E501 setup.py sample tests    
+    
+matrix:
+  PYTHON_VERSION:
+    - 2.7
+    - 3.6
