@@ -5,7 +5,7 @@
   vars:
     app_name: test
     region: ap-south-1 
-    alarm_recipients: arn:aws:sns:ap-south-1:089816662102:rahuls-test
+    alarm_recipients: arn:aws:sns:ap-south-1:064827688814:rahuls-test
   tasks:
   - include_tasks: alarm-defination.yml
     with_items:
