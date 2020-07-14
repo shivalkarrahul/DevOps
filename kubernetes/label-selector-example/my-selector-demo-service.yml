@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: selector-demo-service
+  namespace: default
+  labels:
+    environment: test
+    app: nginx
+spec:
+  externalTrafficPolicy: Local
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:    
+    app: nginx
+  type: NodePort

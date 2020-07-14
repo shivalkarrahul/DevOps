@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend
+spec:
+  containers:
+    - name: mysql
+      image: mysql:latest
+      env:
+        - name: "MYSQL_USER"
+          value: "mysql"
+        - name: "MYSQL_PASSWORD"
+          value: "mysql"
+        - name: "MYSQL_DATABASE"
+          value: "sample"
+        - name: "MYSQL_ROOT_PASSWORD"
+          value: "supersecret"
+      ports:
+        - containerPort: 3306
+  tolerations:
+  - key: app
+    value: fronend
+    effect: NoSchedule
+    operator: Equal
