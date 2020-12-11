@@ -28,7 +28,7 @@ Parameters:
     Type: String
     MinLength: '8'
     AllowedPattern: "[a-zA-Z0-9!?]*"
-    ConstraintDescription: Must only contain upper and lowercase letters and numbers
+    ConstraintDescription: Must only contain the uppercase and lowercase letters and numbers
   BackupRetentionPeriod:
     Description: Enter Backup Retention Period in Days.
     Type: Number
