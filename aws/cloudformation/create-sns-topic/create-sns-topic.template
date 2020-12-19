@@ -1,0 +1,47 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: The SNS Topic
+Parameters:
+  SubscriptionEndPoint:
+    Type: String
+    Description: The endpoint that receives notifications.
+  SubscriptionProtocol:
+    Type: String
+    Description: The subscription protocol
+    AllowedValues:
+    - http
+    - https
+    - email
+    - email-json
+    - sms
+    - sqs
+    - application
+    - lambda
+    Default: email
+Mappings: {}
+Conditions: {}
+Resources:
+  SNSTopic:
+    Type: AWS::SNS::Topic
+    Properties: {}
+  SNSSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint:
+        Ref: SubscriptionEndPoint
+      Protocol:
+        Ref: SubscriptionProtocol
+      TopicArn:
+        Ref: SNSTopic
+Outputs:
+  QueueName:
+    Description: Name of the SNS Topic we created
+    Value:
+      Fn::GetAtt:
+      - SNSTopic
+      - TopicName
+  TopicARN:
+    Description: ARN of the SNS Topic we created 
+    Value:
+      Ref: SNSTopic
+
