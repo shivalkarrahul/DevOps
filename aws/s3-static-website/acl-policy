@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1548223592786",
+    "Statement": [
+        {
+            "Sid": "Stmt1548223591553",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::kops.devopslee.com/*"
+        }
+    ]
+}
