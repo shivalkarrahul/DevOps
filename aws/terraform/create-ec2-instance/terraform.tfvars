@@ -1,3 +1,2 @@
-access_key = "AKIAQ6GAIA5XIHHM2GJM"
-secret_key = "pEPqnBW1jZ/PJPGn/wlydEge3kgGdCPzQ+xkJqG1"
-
+access_key = "<your-aws-access-here>"
+secret_key = "<your-aws-secret-here>"
