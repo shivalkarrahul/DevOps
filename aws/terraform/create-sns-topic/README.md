@@ -1,6 +1,6 @@
 ### Features
 
--  Create an SNS Topic Terraform.
+-  Create an SNS Topic using Terraform.
 
 Create an SNS Topic using Terraform
 -------------
