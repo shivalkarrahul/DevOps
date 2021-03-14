@@ -4,7 +4,7 @@
 
 Note: Before executing the script, make sure you have AWS access and secret keys of source and destination account with sufficient/full permissions to perform operations on DynamoDB tables
 
-Make a copy of DynamoDB table.
+### Make a copy of DynamoDB table.
 
 This script copies defined number of items from one DynamoDB table to another. It covers the following use-cases.
 
@@ -12,7 +12,6 @@ This script copies defined number of items from one DynamoDB table to another. I
 2. Source Table does not exist
 3. Destination Table does not exist
 4. Both the table exist
-
 -------------
 
 **Files:** 
