@@ -8,8 +8,8 @@
 kops version #Check kops vesion, tested with Version 1.18.2
 helm version # Tested with Helm v3.5.3
 
-export AWS_ACCESS_KEY_ID=AKIAQ6GAIA5XB4MK7IS7 #Export AWS Access Key
-export AWS_SECRET_ACCESS_KEY=jaKJSumKuMgqYvJBi+9jqpROkwgQabWs88lHgXDh ##Export AWS Secret Key
+export AWS_ACCESS_KEY_ID=<your-aws-access-key-here> #Export AWS Access Key
+export AWS_SECRET_ACCESS_KEY=<your-aws-secret-key-here> ##Export AWS Secret Key
 
 export KOPS_STATE_STORE=s3://kops.devopslee.com
 kops get clusters
