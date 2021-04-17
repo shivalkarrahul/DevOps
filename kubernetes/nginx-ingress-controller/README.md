@@ -24,6 +24,7 @@ kubectl get pods -A
 ## Setup Ingress Controller
 
 ```bash
+helm version # Tested with Helm v3.5.3
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
@@ -50,9 +51,6 @@ kubectl apply -f 3-nginx-blue-app.yaml
 kubectl get deployments
 kubectl get pods
 kubectl get service
-kubectl logs nginx-ingress-ingress-nginx-controller-5c97c6b4d5-btvpl -f 
-kubectl apply -f 4-ingress.yaml
-
 ```
 
 ### Ingress
