@@ -16,6 +16,7 @@ kubectl get svc
 ## Setup Cert Manager
 
 ```bash
+#Tested with Helm v3.5.3
 kubectl create namespace cert-manager
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
