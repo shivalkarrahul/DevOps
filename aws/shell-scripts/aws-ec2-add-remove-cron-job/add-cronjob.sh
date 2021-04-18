@@ -11,7 +11,7 @@ helpFunction()
 	echo -e "\t-a Name of the cron to be added (in double quotes)"
 	echo "Add a new Cron Job"
 	echo "e.g."
-	echo "./add-cronjob.sh -K /Users/cloudcover/Documents/Rahul/access/rahuls.pem -U ubuntu -I ec2-35-180-234-158.eu-west-3.compute.amazonaws.com -a \"0 5 * * 1  testCronJob\""
+	echo "./add-cronjob.sh -K /Users/Documents/Rahul/access/rahuls.pem -U ubuntu -I ec2-35-180-234-158.eu-west-3.compute.amazonaws.com -a \"0 5 * * 1  testCronJob\""
 
 	echo -e "\033[0m" #reset color
 	exit 1 # Exit script after printing help

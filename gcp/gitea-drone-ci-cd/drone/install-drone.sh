@@ -2,7 +2,7 @@ kubectl cluster-info
 if [ $? -eq 1 ]
 then
   echo "kubectl was unable to reach your Kubernetes cluster."
-  echo "gcloud container clusters get-credentials cluster-name --zone region --project cloudcover-sandbox"
+  echo "gcloud container clusters get-credentials cluster-name --zone region --project sandbox"
   exit 1
 fi
 

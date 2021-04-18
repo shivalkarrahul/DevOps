@@ -1,7 +1,7 @@
 
 variable "project_name" {
 type	= "string"
-default = "cloudcover-sandbox"
+default = "sandbox"
 }
 
 variable "pub_name"{

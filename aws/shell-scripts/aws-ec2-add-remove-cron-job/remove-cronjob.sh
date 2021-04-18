@@ -11,7 +11,7 @@ helpFunction()
 	echo -e "\t-l List the existing Cron Jobs, provide \"yes\" as a parameter. Get a list first and then specify job no which needs to be removed"
 	echo -e  "e.g."
 	echo "Remove a new Cron Job"
-	echo "./remove-cronjob.sh -K /Users/cloudcover/Documents/Rahul/access/rahuls.pem -U ubuntu -I ec2-52-47-90-247.eu-west-3.compute.amazonaws.com -l yes"
+	echo "./remove-cronjob.sh -K /Users/Documents/Rahul/access/rahuls.pem -U ubuntu -I ec2-52-47-90-247.eu-west-3.compute.amazonaws.com -l yes"
 	echo -e "\033[0m" #reset color
 	exit 1 # Exit script after printing help
 }

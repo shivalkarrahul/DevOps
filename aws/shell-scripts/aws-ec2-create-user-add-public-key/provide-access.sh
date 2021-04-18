@@ -11,7 +11,7 @@ helpFunction()
       echo -e "Put Public Key in double quotes"
 
       echo -e  "e.g."
-      echo "./provide-access.sh -U ubuntu -K /Users/cloudcover/Documents/Rahul/access/rahuls.pem -I 192.168.134.100  -u rahul -k  \"ssh-rsa Z1rbx6/F/ZntfkvKzX6e82ZXETBSMkFXZ2oYOOLb9QtTu4IO+W560+afjp1xLOYqWNyX+fI8N6WHKeEsZycq0iyHX5herNWxorLU3gGnwGSABCb+62yP3eaESMMV+9dJjFC9X4IyLHMR91OeDsxeLL41ABANofMROQ8yDjNcYVUxjKWyzNzuJxgnN5KngwkUOWHGbCFmHUsz1WVuWA+rhhk1CPZFywUdsDeGR/Dxd+oNKGvaKGIQuDqK1vY5GiLg0N+OvanTPbLper3/Z5A5d62fRF6+mensZGsKW543 key-name\""
+      echo "./provide-access.sh -U ubuntu -K /Users/Documents/Rahul/access/rahuls.pem -I 192.168.134.100  -u rahul -k  \"ssh-rsa Z1rbx6/F/ZntfkvKzX6e82ZXETBSMkFXZ2oYOOLb9QtTu4IO+W560+afjp1xLOYqWNyX+fI8N6WHKeEsZycq0iyHX5herNWxorLU3gGnwGSABCb+62yP3eaESMMV+9dJjFC9X4IyLHMR91OeDsxeLL41ABANofMROQ8yDjNcYVUxjKWyzNzuJxgnN5KngwkUOWHGbCFmHUsz1WVuWA+rhhk1CPZFywUdsDeGR/Dxd+oNKGvaKGIQuDqK1vY5GiLg0N+OvanTPbLper3/Z5A5d62fRF6+mensZGsKW543 key-name\""
 
       echo -e "\033[0m" #reset color
       exit 1 # Exit script after printing help
