@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-docker",
+  "version": "12.18.4",
+  "description": "nodejs on ec2 using docker container",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rahul Shivalkar",
+  "license": "ISC"
+}
