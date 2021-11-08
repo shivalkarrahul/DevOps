@@ -11,7 +11,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 
 #Copy package.json in the image
-#COPY package.json ./
+COPY package.json ./
 
 
 RUN npm install express --save
