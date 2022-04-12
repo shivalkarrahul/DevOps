@@ -10,27 +10,38 @@ global args
 def opsCtl():
 
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog='opsctl.py')
 
     parser.add_argument('-o', '--operation', required=True, action="store", dest="operation",
-                    help="Operation that you want to perform using ops-ctl.", default=None, choices=['generate', 'create', 'delete'], type=str)
+                    help="Operation that you want to perform using opsctl.", default=None, choices=['generate'], type=str)
     parser.add_argument('-t', '--template', required=True, action="store", dest="tool",
-                    help="Template that you want to generate using ops-ctl", default=None, choices=['jenkinsfile', 'dockerfile', 'helmchart'], type=str)
+                    help="Template that you want to generate using opsctl", default=None, choices=['jenkinsfile', 'dockerfile', 'helmchart', 'microservice'], type=str)
     parser.add_argument('-m', '--microservice', required=True, action="store", dest="microservice",
-                    help="Name of the microservice that you want to specify in the templates using ops-ctl", default=None, type=str)
+                    help="Type of the microservice for which you want to generate the templates using opsctl", default=None, choices=['java', 'nodejs', 'python'], type=str)
+    parser.add_argument('-n', '--name', required=False, action="store", dest="name",
+                    help="Name of the microservice that you want to specify in the templates using opsctl", default="my-sample-service", type=str)
+
+
+    subparsers = parser.add_subparsers(help='sub-command help')
+
     args = parser.parse_args()
+
+
+
 
 
     operation = args.operation
     tool = args.tool
     microservice = args.microservice
+    name = args.name
 
     print("Printing values")
     print("operation", operation)
-    print("tool", tool)
+    print("template", tool)
     print("microservice", microservice)
+    print("name", name)
 
-    generate_dockerfile.generate()
+    generate_dockerfile.generate(name)
     generate_helmchart.generate()
     generate_jenkinsfile.generate()
 
@@ -38,4 +49,4 @@ def opsCtl():
 
 
 if __name__ == '__main__':
-    opsCtl() # pragma: no cover    
+    opsCtl()
