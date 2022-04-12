@@ -1,4 +1,5 @@
 import os
+import shutil
 
 def create_folder(name):
     print("\n")
@@ -14,4 +15,36 @@ def create_folder(name):
         os.makedirs(path)
     except FileExistsError as e:
          print(e)
+
+def copy_file(microservice, name):
+
+    directory = os.getcwd()
+    print("Current Working Directory -->",directory)
+
+
+    source = directory+ "/resources/dockerfiles/Dockerfile-" +microservice
+    destination = directory+ "/" +name+ "/Dockerfile"
+
+    print ("source -->", source)
+    print ("destination -->", destination)
+
+    try:
+        shutil.copyfile(source, destination)
+        print("File copied successfully.")
+    
+    # If source and destination are same
+    except shutil.SameFileError:
+        print("Source and destination represents the same file.")
+    
+    # If destination is a directory.
+    except IsADirectoryError:
+        print("Destination is a directory.")
+    
+    # If there is any permission issue
+    except PermissionError:
+        print("Permission denied.")
+    
+    # For other errors
+    except:
+        print("Error occurred while copying file.")
             
