@@ -1,3 +1,3 @@
 
 def generate():
-    print("Inside generate")
+    print("Inside dockerfile --> generate")
