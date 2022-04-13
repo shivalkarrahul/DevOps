@@ -43,8 +43,8 @@ def opsCtl():
     print("name", name)
 
     generate_dockerfile.generate(microservice, name)
+    generate_jenkinsfile.generate(microservice, name)
     generate_helmchart.generate()
-    generate_jenkinsfile.generate()
     generate_java_microservice.generate(microservice, name)
 
 

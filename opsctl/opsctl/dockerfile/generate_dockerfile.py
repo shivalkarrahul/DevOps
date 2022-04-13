@@ -6,7 +6,7 @@ def generate(microservice, name):
     print("Name of the microservice -->", name)
 
     my_utilities.create_folder(name)
-    my_utilities.copy_file(microservice, name)
+    my_utilities.copy_dockerfile(microservice, name)
 
 
 

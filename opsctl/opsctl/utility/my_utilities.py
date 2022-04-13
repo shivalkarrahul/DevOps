@@ -16,7 +16,9 @@ def create_folder(name):
     except FileExistsError as e:
          print(e)
 
-def copy_file(microservice, name):
+def copy_dockerfile(microservice, name):
+    print("\n")
+    print("Inside copy_dockerfile")
 
     directory = os.getcwd()
     print("Current Working Directory -->",directory)
@@ -49,6 +51,40 @@ def copy_file(microservice, name):
         print("Error occurred while copying file.")
             
 
+def copy_jenkinsfile(microservice, name):
+    print("\n")
+    print("Inside copy_jenkinsfile")    
+
+    directory = os.getcwd()
+    print("Current Working Directory -->",directory)
+
+
+    source = directory+ "/resources/jenkinsfiles/Jenkinsfile-" +microservice
+    destination = directory+ "/" +name+ "/Jenkinsfile"
+
+    print ("source -->", source)
+    print ("destination -->", destination)
+
+    try:
+        shutil.copyfile(source, destination)
+        print("File copied successfully.")
+    
+    # If source and destination are same
+    except shutil.SameFileError:
+        print("Source and destination represents the same file.")
+    
+    # If destination is a directory.
+    except IsADirectoryError:
+        print("Destination is a directory.")
+    
+    # If there is any permission issue
+    except PermissionError:
+        print("Permission denied.")
+    
+    # For other errors
+    except:
+        print("Error occurred while copying file.")
+
 
 def copy_sourcecode_folder(microservice, name):
 
@@ -79,5 +115,5 @@ def copy_sourcecode_folder(microservice, name):
         print("Permission denied.")
     
     # For other errors
-    # except:
-    #     print("Error occurred while copying file.")    
+    except:
+        print("Error occurred while copying file.")    
