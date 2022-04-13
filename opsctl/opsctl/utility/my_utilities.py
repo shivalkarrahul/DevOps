@@ -48,3 +48,36 @@ def copy_file(microservice, name):
     except:
         print("Error occurred while copying file.")
             
+
+
+def copy_sourcecode_folder(microservice, name):
+
+    directory = os.getcwd()
+    print("Current Working Directory -->",directory)
+
+
+    source = directory+ "/resources/sourcecode/" +microservice
+    destination = directory+ "/" +name+ "/"
+
+    print ("source -->", source)
+    print ("destination -->", destination)
+
+    try:
+        shutil.copytree(source, destination, dirs_exist_ok=True)
+        print("File copied successfully.")
+    
+    # If source and destination are same
+    except shutil.SameFileError:
+        print("Source and destination represents the same file.")
+    
+    # If destination is a directory.
+    except IsADirectoryError:
+        print("Destination is a directory.")
+    
+    # If there is any permission issue
+    except PermissionError:
+        print("Permission denied.")
+    
+    # For other errors
+    # except:
+    #     print("Error occurred while copying file.")    

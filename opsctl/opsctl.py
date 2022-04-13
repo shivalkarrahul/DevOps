@@ -3,6 +3,7 @@ import argparse
 from opsctl.dockerfile import generate_dockerfile
 from opsctl.helmchart import generate_helmchart
 from opsctl.jenkinsfile import generate_jenkinsfile
+from opsctl.microservice import generate_java_microservice
 
 
 global args
@@ -22,7 +23,7 @@ def opsCtl():
                     help="Name of the microservice that you want to specify in the templates using opsctl", default="my-sample-service", type=str)
 
 
-    subparsers = parser.add_subparsers(help='sub-command help')
+    # subparsers = parser.add_subparsers(help='sub-command help')
 
     args = parser.parse_args()
 
@@ -44,6 +45,9 @@ def opsCtl():
     generate_dockerfile.generate(microservice, name)
     generate_helmchart.generate()
     generate_jenkinsfile.generate()
+    generate_java_microservice.generate(microservice, name)
+
+
 
 
 
