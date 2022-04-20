@@ -3,7 +3,9 @@ import argparse
 from opsctl.dockerfile import generate_dockerfile
 from opsctl.helmchart import generate_helmchart
 from opsctl.jenkinsfile import generate_jenkinsfile
-from opsctl.microservice import generate_java_microservice
+#from opsctl.microservice import generate_java_microservice
+#from opsctl.microservice import generate_nodejs_microservice
+from opsctl.microservice import generate_microservice
 
 
 global args
@@ -45,7 +47,10 @@ def opsCtl():
     generate_dockerfile.generate(microservice, name)
     generate_jenkinsfile.generate(microservice, name)
     generate_helmchart.generate()
-    generate_java_microservice.generate(microservice, name)
+    # generate_java_microservice.generate(microservice, name)
+    # generate_nodejs_microservice.generate(microservice, name)
+    generate_microservice.generate(microservice, name)
+
 
 
 
