@@ -43,15 +43,49 @@ def opsCtl():
 
     if args.command == 'generate':
         print('Generating a template:', args.template , 'for microservice of type:', args.microservice, 'with name:', args.name)
+        if args.template == 'jenkinsfile':
+            print('Generating a', args.template, 'template' )
+            generate_jenkinsfile.generate(args.microservice, args.name)
+
+        elif args.template == 'dockerfile':
+            print('Generating a', args.template, 'template' )
+            generate_dockerfile.generate(args.microservice, args.name)
+
+        elif args.template == 'helmchart':
+            print('Generating a', args.template, 'template' )
+            generate_helmchart.generate()
+
+        elif args.template == 'microservice':
+            print('Generating a', args.template, 'template' )
+            generate_java_microservice.generate(args.microservice, args.name)
+
+        else:
+            print('Generating a template: Invalid')    
+                                 
+        if args.microservice == 'java':
+            print('Microservice Type:', args.microservice )
+            generate_microservice.generate(args.microservice, args.name)
+
+        elif args.microservice == 'nodejs':
+            print('Microservice Type:', args.microservice )
+            generate_microservice.generate(args.microservice, args.name)
+
+        elif args.microservice == 'python':
+            print('Microservice Type:', args.microservice )
+            generate_microservice.generate(args.microservice, args.name)
+            
+        else:
+            print('Generating a template: Invalid')         
+
     elif args.command == 'deploy':
         print('Deploying an application:', args.application)
 
-    # generate_dockerfile.generate(microservice, name)
-    # generate_jenkinsfile.generate(microservice, name)
-    # generate_helmchart.generate()
-    # # generate_java_microservice.generate(microservice, name)
-    # # generate_nodejs_microservice.generate(microservice, name)
-    # generate_microservice.generate(microservice, name)
+    # 
+    # 
+    # 
+    # # 
+    # # 
+    # 
 
 
 if __name__ == '__main__':
