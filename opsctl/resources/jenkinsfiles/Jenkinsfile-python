@@ -1,0 +1,75 @@
+pipeline {
+    agent { label any }
+    environment {
+      
+
+        TEST_VARIABLE = "${TEST_VARIABLE}"
+    }    
+
+    stages {
+
+        stage('Init') {         
+            steps {
+                echo 'Inside Init Stage --> Steps'
+                script{
+                    echo 'Inside Init Stage --> Steps --> Script'
+
+                    
+                }
+            }
+        }
+
+        stage('Build') {         
+            steps {
+                echo 'Inside Build Stage --> Steps'
+                script{
+                    echo 'Inside Build Stage --> Steps --> Script'
+
+                    
+                }
+            }
+        }
+
+        stage('Push') {         
+            steps {
+                echo 'Inside Push Stage --> Steps'
+                script{
+                    echo 'Inside Push Stage --> Steps --> Script'
+
+                    
+                }
+            }
+        }
+
+        stage('Deploy') {         
+            steps {
+                echo 'Inside Deploy Stage --> Steps'
+                script{
+                    echo 'Inside Deploy Stage --> Steps --> Script'
+
+                    
+                }
+            }
+        }
+        
+        
+    }
+    post {
+        always {
+            echo 'This will always run'
+        }
+        success {
+            echo 'This will run only if successful'
+        }
+        failure {
+            echo 'This will run only if failed'
+        }
+        unstable {
+            echo 'This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
+    }    
+}

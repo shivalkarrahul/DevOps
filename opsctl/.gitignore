@@ -1,0 +1,4 @@
+__pycache__
+my-sample-service
+*.pyc
+sample*
