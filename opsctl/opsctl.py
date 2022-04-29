@@ -1,3 +1,4 @@
+import configparser
 import argparse
 
 from opsctl.dockerfile import generate_dockerfile
@@ -9,6 +10,25 @@ from opsctl.microservice import generate_microservice
 
 
 global args
+
+def readProperties():
+    
+    print("Reading conf/opsctl.properties file")
+    
+    config = configparser.ConfigParser()
+    config.read('conf/opsctl.properties')
+
+    global ip
+    global url
+    global user
+    global password
+    global key
+
+    ip=config.get("jenkins", "ip")
+    url=config.get("jenkins", "url")
+    user=config.get("jenkins", "user")
+    password=config.get("jenkins", "password")
+    key=config.get("jenkins", "key")
 
 def opsCtl():
 
@@ -28,7 +48,7 @@ def opsCtl():
     # args = parser.parse_args()
 
     parser = argparse.ArgumentParser()
-    subparser = parser.add_subparsers(dest='command')
+    subparser = parser.add_subparsers(dest='command', required=True)
 
     generate = subparser.add_parser('generate')
     deploy = subparser.add_parser('deploy')
@@ -80,13 +100,11 @@ def opsCtl():
     elif args.command == 'deploy':
         print('Deploying an application:', args.application)
 
-    # 
-    # 
-    # 
-    # # 
-    # # 
-    # 
-
-
 if __name__ == '__main__':
+    readProperties()
+    print(ip)
+    print(url)
+    print(user)
+    print(password)
+    print(key)  
     opsCtl()
